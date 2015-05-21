@@ -3,12 +3,15 @@
 ////////////////////////////////////////////////
 'use strict';
 
+var wins = 5; // this variable sets the number of wins required for either player or computer. 
+//Note: can adjust the Tied amount within the playTo function below, to end the game if so many ties.
+
 //welcome message:
 
-alert("Welcome to the Rock, Paper, Scissors game, you will be prompted for a move, until the required number of wins has been met by either yourself or the computer. Please see the console for results.\nGood Luck :)");
+alert("Welcome to the Rock, Paper, Scissors game, you will be prompted for a move, until " + wins + " wins have been reached by either yourself or the computer. \nPlease see the console for results. \nGood luck :)");
+
 
 console.log('Let\'s play Rock Paper Scissors');
-
 
 // changed getInput() to display proper message.
 function getInput() {
@@ -87,13 +90,11 @@ function getWinner(playerMove,computerMove) {
     return [playerWins, computerWins];   
     
 }*/
-// below is what i have done, havent managed to get it to prompt til 5, will display 5 results but for same first prompt
-
+// My code below to get game to function
 var playerWins = 0, computerWins = 0, tie = 0, round = 0;
-// Instructions, need to set the playerwins and computerwins values in the outcome() function below.
-// Game will then run until either player or computer reaches that figure, unless so many ties.
+
 function outcome(){
-  //var round = 0;
+  
   var result = getWinner();
   var total;
   
@@ -122,24 +123,28 @@ function outcome(){
   
           console.log(total);
           }
-        // Set number of playerWins/computerWins here.
-        if((playerWins === 2) || (computerWins === 2)){
-                      
-            console.log("Good game!");
+        
+        
+        return playTo();
+}
+// playTo function will run outcome, remember to set # of wins above, can amend # of ties below.
+function playTo(){
+  
+      if((playerWins === wins) || (computerWins === wins)){
+            
             console.log("Final Scores: Player: " + playerWins + " Computer: " + computerWins);
+            alert("Good game!" + "\n" + "Final Scores - Player: " + playerWins + ", Computer: " + computerWins);
+            
         
             return; // Need this to end game when required amount met.
-        }else if(tie === 5){
+        }else if(tie === 10){
           
-            console.log("So many Tied, time for a beer!");
+            console.log("Enough, beer time :)");
+            alert("So many Tied, time for a beer!");
       
             return; // Ditto above can set amount of tied results to end the game.
         }
-        return playTo();
-}
-// playTo function will run outcome
-function playTo(){
-  
+    
       outcome();
     
 }
