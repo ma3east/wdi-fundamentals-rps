@@ -2,10 +2,18 @@
 /*   Provided Code - Please Don't Edit   */
 ////////////////////////////////////////////////
 'use strict';
+
+//welcome message:
+
+alert("Welcome to the Rock, Paper, Scissors game, you will be prompted for a move, until the required number of wins has been met by either yourself or the computer. Please see the console for results.\nGood Luck :)");
+
+console.log('Let\'s play Rock Paper Scissors');
+
+
 // changed getInput() to display proper message.
 function getInput() {
     var message = ("Please choose either 'rock', 'paper', or 'scissors'.")
-    return prompt(message);
+    return prompt(message +"\n" + "Score - Player: " + playerWins + ", Computer: " + computerWins);
 }
 function randomPlay() {
     var randomNumber = Math.random();
@@ -81,19 +89,17 @@ function getWinner(playerMove,computerMove) {
 }*/
 // below is what i have done, havent managed to get it to prompt til 5, will display 5 results but for same first prompt
 
-function playToFive(){
-  var round = 0;
-  var playerWins = 0, computerWins = 0, tie = 0;
+var playerWins = 0, computerWins = 0, tie = 0, round = 0;
+// Instructions, need to set the playerwins and computerwins values in the outcome() function below.
+// Game will then run until either player or computer reaches that figure, unless so many ties.
+function outcome(){
+  //var round = 0;
   var result = getWinner();
   var total;
-  console.log('Let\'s play Rock Paper Scissors');
   
-    while((playerWins !== 5) || (computerWins !== 5)){
-    
-    
         if(result){
          
-          round += 1;  console.log("This is round: " + round);
+          round++;  console.log("This is round: " + round);
           
           if(result === 'player'){
           console.log("The winner of this round is: player");
@@ -112,22 +118,32 @@ function playToFive(){
           
           total = [playerWins, computerWins, tie];
           
-        } 
-        console.log(("Scores: Player: " + playerWins + " Computer: " + computerWins + " Tied: " + tie)); 
+          console.log(("Scores: Player: " + playerWins + " Computer: " + computerWins + " Tied: " + tie)); 
   
-        console.log(total);
-    
-        if((playerWins == 5) || (computerWins == 5)){
+          console.log(total);
+          }
+        // Set number of playerWins/computerWins here.
+        if((playerWins === 2) || (computerWins === 2)){
+                      
             console.log("Good game!");
-            break;
+            console.log("Final Scores: Player: " + playerWins + " Computer: " + computerWins);
         
-        }else if(tie == 5){
+            return; // Need this to end game when required amount met.
+        }else if(tie === 5){
+          
+            console.log("So many Tied, time for a beer!");
       
-          break;
+            return; // Ditto above can set amount of tied results to end the game.
         }
-    
-  }
-   
+        return playTo();
 }
-playToFive();
-.
+// playTo function will run outcome
+function playTo(){
+  
+      outcome();
+    
+}
+
+playTo();
+
+
