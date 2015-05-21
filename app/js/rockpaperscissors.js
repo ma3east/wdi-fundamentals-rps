@@ -16,7 +16,7 @@ console.log('Let\'s play Rock Paper Scissors');
 // changed getInput() to display proper message.
 function getInput() {
     var message = ("Please choose either 'rock', 'paper', or 'scissors'.")
-    return prompt(message +"\n" + "Score - Player: " + playerWins + ", Computer: " + computerWins);
+    return prompt(message +"\n" + "Score - Player: " + playerWins + ", Computer: " + computerWins + ", Tied: " + tie);
 }
 function randomPlay() {
     var randomNumber = Math.random();
