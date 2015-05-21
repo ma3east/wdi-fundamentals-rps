@@ -4,7 +4,7 @@
 'use strict';
 
 var wins = 5; // this variable sets the number of wins required for either player or computer. 
-//Note: can adjust the Tied amount within the playTo function below, to end the game if so many ties.
+//Note: can adjust the Tied amount within the playToWins function below, to end the game if so many ties.
 
 //welcome message:
 
@@ -125,10 +125,10 @@ function outcome(){
           }
         
         
-        return playTo();
+        return playToWins();
 }
-// playTo function will run outcome, remember to set # of wins above, can amend # of ties below.
-function playTo(){
+// playToWins function will run outcome, remember to set # of wins above, can amend # of ties below.
+function playToWins(){
   
       if((playerWins === wins) || (computerWins === wins)){
             
@@ -149,6 +149,6 @@ function playTo(){
     
 }
 
-playTo();
+playToWins();
 
 
