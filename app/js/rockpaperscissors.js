@@ -50,6 +50,9 @@ function getWinner(playerMove,computerMove) {
     var winner;
     playerMove = getPlayerMove();
     computerMove = getComputerMove();
+    
+    // display the moves to the console.
+    console.log("Player Move: " + playerMove.toUpperCase() + ": Computer Move: " + computerMove.toUpperCase());
     // Write code that will set winner to either 'player', 'computer', or 'tie' based on the values of playerMove and computerMove.
     // Assume that the only values playerMove and computerMove can have are 'rock', 'paper', and 'scissors'.
     // The rules of the game are that 'rock' beats 'scissors', 'scissors' beats 'paper', and 'paper' beats 'rock'.
@@ -127,7 +130,7 @@ function outcome(){
         
         return playToWins();
 }
-// playToWins function will run outcome, remember to set # of wins above, can amend # of ties below.
+// playToWins function will run outcome function, remember to set # of wins above, can amend # of ties below.
 function playToWins(){
   
       if((playerWins === wins) || (computerWins === wins)){
